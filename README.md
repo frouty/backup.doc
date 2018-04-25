@@ -20,9 +20,9 @@
 # installation de urbackup sur une freebsd 
 ## freebsd version
 ## https://www.urbackup.org/freenasserverinstall.html
-1 Create a new FreeBSD jail (the default). 
-2 Map the backup storage into the jail. Je n'ai pas compris ce qu'il fallait faire.
-3 Open a shell/console to the new jail
+- 1 Create a new FreeBSD jail (the default). 
+- 2 Map the backup storage into the jail. Je n'ai pas compris ce qu'il fallait faire.
+- 3 Open a shell/console to the new jail
   - pkg update
   - pkg install cryptopp
   - curl -O https://hndl.urbackup.org/Server/2.2.11/urbackup-server-2.2.11.tar.gz
@@ -30,7 +30,7 @@
   - cd urbackup-server-2.2.11
   - ./configure
   - make install -j4 
-4 To automatically start UrBackup on jail boot: TODO 
+- 4 To automatically start UrBackup on jail boot: TODO 
 
     echo "#!/bin/sh" > /etc/rc.local
     echo "/usr/local/bin/urbackupsrv run -d -g 104857600 -u root" >> /etc/rc.local
@@ -38,6 +38,6 @@
  "/usr/local/bin/urbackupsrv run -d -g 104857600 -u root" cette commande ne marche pas pour faire demarrer le service.  
  /usr/local/bin/urbackupsrv run -d marche. pour faire demarrer le service.
  
-5 Restart the jail.
+- 5 Restart the jail.
 
-6 Browse to http://jail-ip:55414 and configure an admin user and the backup storage path.
+- 6 Browse to http://jail-ip:55414 and configure an admin user and the backup storage path.
