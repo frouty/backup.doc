@@ -29,7 +29,7 @@
   - tar xf urbackup-server-2.2.11.tar.gz
   - cd urbackup-server-2.2.11
   - ./configure
-  - make install -j4
+  - make install -j4 
 4 To automatically start UrBackup on jail boot: TODO 
 
     echo "#!/bin/sh" > /etc/rc.local
