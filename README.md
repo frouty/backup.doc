@@ -121,7 +121,7 @@ and clicking on the tray icon and add paths. You can also do that on the server.
 
 ## urbackupclientgui 
 ne marche pas tres bien.  
-J'ai fait un reboot et cela marche.
+J'ai fait un reboot du client et cela marche.
 
 ## urbackupclientctl 
 ne marche pas tres bien
@@ -133,8 +133,13 @@ Si cela crash : bt
 On peut aussi faire un tail -f /var/log/urbackup.log
 
 ## add backup path
-le seul moyen que j'ai trouvé pour ajouté un chemin de sauvegarde c'est dans le webgui du server  
+On peut ajouter une chemin par defaut pour tous les clients. Dans le webgui du server  
 settings / client settings / Default directory to backup   
-Mais c'est général à tous les clients.
+Mais c'est général à tous les clients.  
+
+## bouton droit de l'icone dans le tray.
+add/remove backup path.
+apres avoir un certain nombre de manoeuvre les backups ne démarrent pas et restent en queue. Reboot du serveur.
+
 ## comment effacer des backups qui sont dans le server.
 
