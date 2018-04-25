@@ -22,7 +22,7 @@
 - puis jexec JID tcsh 
 ## ou directement ssh dans la jail
 ssh username@ipjail  
-ipjail se trouve dans le webgui du freenas / jail  
+On trouve l'ipjail dans le webgui du freenas / jail  
 Mais avant il faut voir : https://doc.freenas.org/11/jails.html
 
 # installation de urbackup sur une freebsd 
@@ -65,22 +65,17 @@ https://forums.freenas.org/index.php?threads/install-urbackup-in-a-jail.22117/
 - 9 dans une console de la jail urbackup chown -R urbackup:urbackup /mnt/Backups
 - 10 dans le webgui du jail urbackup
     - Go in the settings / general / server tab
-    - In the [backup storage path] field, the default value is "c:/backup", change it into "/mnt/backups
+    - In the [backup storage path] field, the default value is "c:/backup", change it into "/mnt/Backups
  
  Maintenant il faut installer le client
  
  ## installation d'un client sur une debian. Install client on Debian or Ubuntu from sources
  
- libcrypto++-dev
- libwxgtk3.0-dev
- build-essential
- g++ je ne le trouve pas avec aptitude.
- libz-dev
- 
+
 - 1 Install the dependencies UrBackup needs: WxWidgets >= 2.9.0 On Debian/Ubuntu you can do that with apt or your favourite package manager:
 
-apt install build-essential "g++" libwxgtk3.0-dev libcrypto++-dev libz-dev
-
+aptitude install build-essential "g++" libwxgtk3.0-dev libcrypto++-dev libz-dev
+Je n'ai pas trouvé "g++" avec aptitude 
 - 2
 
 Download the UrBackup client source files and extract them via e.g.
@@ -101,9 +96,19 @@ sudo make install
 
 Make sure that the UrBackup client backend runs correctly:
 
-sudo urbackupclientbackend -v info
+sudo /usr/local/bin/urbackupclientbackend -v info  
+qui donne  
+# /usr/local/sbin/urbackupclientbackend -v info
+2018-04-25 22:40:20: urbackupserver: Server started up successfully!  
+2018-04-25 22:40:20: FileSrv: Servername: -saphir-  
+2018-04-25 22:40:20: Started UrBackupClient Backend...  
+2018-04-25 22:40:21: Looking for old Sessions... 2 sessions  
+No LSB modules are available.  
+2018-04-25 22:41:02: FileSrv: Servername: -saphir-  
+2018-04-25 22:41:02: Script list at "/usr/local/etc/urbackup/scripts/list" does not exist. Skipping.  
+2018-04-25 22:41:13: FileSrv: Servername: -saphir-  
 
-- 5
+- 5 TODO
 
 Start the UrBackup client backend on startup by adding it e.g. to rc.local:
 
@@ -118,3 +123,6 @@ Start the UrBackup client frontend and setup your paths by executing
 urbackupclientgui
 
 and clicking on the tray icon and add paths. You can also do that on the server.
+
+immédiatement on obtient rien en cliquant sur l'icone dans le tray.  
+Je vais dans le webgui du server et je vois apparaitre la machine avec le client que je viens d'installer dans "Status"
