@@ -32,9 +32,9 @@
   - make install -j4 
 - 4 To automatically start UrBackup on jail boot: TODO 
 
-    echo "#!/bin/sh" > /etc/rc.local
-    echo "/usr/local/bin/urbackupsrv run -d -g 104857600 -u root" >> /etc/rc.local
-    chmod +x /etc/rc.local
+    echo "#!/bin/sh" > /etc/rc.local  
+    echo "/usr/local/bin/urbackupsrv run -d -g 104857600 -u root" >> /etc/rc.local  
+    chmod +x /etc/rc.local  
  "/usr/local/bin/urbackupsrv run -d -g 104857600 -u root" cette commande ne marche pas pour faire demarrer le service.  
  /usr/local/bin/urbackupsrv run -d marche. pour faire demarrer le service.
  
