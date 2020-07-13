@@ -143,3 +143,9 @@ apres avoir un certain nombre de manoeuvre les backups ne démarrent pas et rest
 
 ## comment effacer des backups qui sont dans le server.
 
+# Clonezilla
+## squid 
+freenas :  /mnt/mnemosys/Backups mis en share nfs
+j'ai fait un backup de squid sur /mnt/mnemosys/Backups que j'ai mis en share nfs.
+Je n'ai pas testé la restoration de cette image. 
+J'ai n'ai pas reussi à mettre en place un smb share que clonezilla puisse monter pour faire l'image.
