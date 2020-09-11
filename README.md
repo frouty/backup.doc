@@ -151,5 +151,9 @@ Je n'ai pas testé la restoration de cette image.
 J'ai n'ai pas reussi à mettre en place un smb share que clonezilla puisse monter pour faire l'image.
 
 # rsync 
-`$ rsync-copy /a/path/from/home/file user@ipLinuxBox:/home/user/` marche tres bien
+`$ rsync-copy /a/path/from/home/file user@ipLinuxBox:/home/user/` marche tres bien  
 `$ rsync-copy /a/path/from/home/file root@ipLinuxBox:/a/apath/to/freenas/storage/` marche tres bien
+## d'un freenas vers un autre freenas.
+dans la console d'un freenas: ` rsync avh /a/path/to/local/freenas a/path/to/destination `
+invite de password de l'autre freenas.
+
