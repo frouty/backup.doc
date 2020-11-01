@@ -16,7 +16,8 @@ Depuis le client on se connecte au sever SSH soit par :
     - `ssh-copy-id -i chemin/clé/publique/id_rsa.pub login@serveur_ssh`
     - elles sont copiées dans le fichier $HOMElogin/.ssh/authorized_keys de l'utilisateur auquel on veut se logguer.
   - clef privée à  ne diffuser sous aucun pretexte.
-## Comment changer la passphrase : `ssh-keygen -p`
+## Comment changer la passphrase : 
+- `ssh-keygen -p`
 ## Afficher la keyfingerprint 
 - ssh-keygen -l
 ## /etc/sshd_config
@@ -24,7 +25,8 @@ Ne pas confonfre le ssh_config (client) et sshd_config (server).
 Dans le sshd_config toutes les lignes # sont les valeurs par defaut.
 https://doc.fedora-fr.org/wiki/SSH_:_Authentification_par_clé
 
-[securisation](https://www.admin-magazine.com/Archive/2016/31/Backups-using-rdiff-backup-and-rsnapshot/(offset)/9)
+
+[securisation](https://www.admin-magazine.com/Archive/2016/31/Backups-using-rdiff-backup-and-rsnapshot/(offset)/9)  
 production system to a backup server over the network via ssh :
 - encrypted data communication
 - Pull backup the backup server backup a remote server
