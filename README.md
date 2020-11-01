@@ -1,5 +1,51 @@
 # backup.doc
 
+# ssh
+[tuto](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)
+[config](https://mathieu-androz.developpez.com/articles/linux/ssh/)
+Depuis le client on se connecte au sever SSH soit par :
+- mot de passe
+- echange de clef
+  - generation d'un couple de clef dans /home/user/.ssh:
+    - `cd ~/.ssh `
+    - `ssh-keygen -t dsa`
+    - `ssh-keygen -t dsa -C un commentaire une adresse mail` -C commentaire va permettre de distinguer les clefs si on a plusieurs.
+    -
+  - au moment de la création de la clef il peut etre demandé une passphrase.
+  - diffusion de la clef publique au server auxquels on veut se connecter:
+    - `ssh-copy-id -i chemin/clé/publique/id_rsa.pub login@serveur_ssh`
+    - elles sont copiées dans le fichier $HOMElogin/.ssh/authorized_keys de l'utilisateur auquel on veut se logguer.
+  - clef privée à  ne diffuser sous aucun pretexte.
+## Comment changer la passphrase : `ssh-keygen -p`
+## Afficher la keyfingerprint 
+- ssh-keygen -l
+## /etc/sshd_config
+Ne pas confonfre le ssh_config (client) et sshd_config (server).
+Dans le sshd_config toutes les lignes # sont les valeurs par defaut.
+https://doc.fedora-fr.org/wiki/SSH_:_Authentification_par_clé
+
+[securisation](https://www.admin-magazine.com/Archive/2016/31/Backups-using-rdiff-backup-and-rsnapshot/(offset)/9)
+production system to a backup server over the network via ssh :
+- encrypted data communication
+- Pull backup the backup server backup a remote server
+- Push backup the server transfert ses datas to a backup server
+Il faut faire plus attention à la sécurité dans un pull backup. 
+- authorized key [ici](https://binblog.info/2008/10/20/openssh-going-flexible-with-forced-commands/)
+## comment s'affranchir des mots de passe et passphrase.
+Il ne faut pas de mot de passe ou de passphrase dans les scripts. 
+- authentification sans mot de passe.
+On génére le couple de clef mais on ne renseigne pas la passphrase.
+- utilisation de ssh-agent.
+## securiser ssh 
+[config](https://mathieu-androz.developpez.com/articles/linux/ssh/)
+
+
+
+
+
+
+
+
 # controle de l'état des disques durs
 
 ## smartcontrol
@@ -153,6 +199,16 @@ J'ai n'ai pas reussi à mettre en place un smb share que clonezilla puisse monte
 # rsync 
 `$ rsync-copy /a/path/from/home/file user@ipLinuxBox:/home/user/` marche tres bien  
 `$ rsync-copy /a/path/from/home/file root@ipLinuxBox:/a/apath/to/freenas/storage/` marche tres bien
+
+## blackdiamond 
+`rsync-copy a/local/path root@ipblackdiamond:/mnt/sandbox`
+me demande le password root que je ne connais pas
+rsync-copy a/local/path user@ipblackdiamond:/mnt/sandbox
+me demande  le passwd de user
+mais bloc mkdir permission dinied
+chown user:user /mnt/sandbox
+et c'est bon. on obtient /mnt/sandbox/Documents/ 
+
 ## d'un freenas vers un autre freenas.
 dans la console d'un freenas: ` rsync avh /a/path/to/local/freenas a/path/to/destination `
 invite de password de l'autre freenas.
