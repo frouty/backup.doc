@@ -3,15 +3,16 @@
 # ssh
 [tuto](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)
 [config](https://mathieu-androz.developpez.com/articles/linux/ssh/)
-Depuis le client on se connecte au sever SSH soit par :
+Depuis le client on se connecte au server SSH soit par :
 - mot de passe
-- echange de clef
+- échange de clef
   - generation d'un couple de clef dans /home/user/.ssh:
     - `cd ~/.ssh `
     - `ssh-keygen -t dsa`
     - `ssh-keygen -t dsa -C un commentaire une adresse mail` -C commentaire va permettre de distinguer les clefs si on a plusieurs.
     -
-  - au moment de la création de la clef il peut etre demandé une passphrase.
+  - au moment de la création de la clef il peut être demandé une passphrase.
+  - ne pas mettre de passphrase pour pour se connecter en ssh dans un script.
   - diffusion de la clef publique au server auxquels on veut se connecter:
     - `ssh-copy-id -i chemin/clé/publique/id_rsa.pub login@serveur_ssh`
     - elles sont copiées dans le fichier $HOMElogin/.ssh/authorized_keys de l'utilisateur auquel on veut se logguer.
@@ -20,6 +21,7 @@ Depuis le client on se connecte au sever SSH soit par :
 - `ssh-keygen -p`
 ## Afficher la keyfingerprint 
 - ssh-keygen -l
+- cela sert à quoi? TODO
 ## /etc/sshd_config
 Ne pas confonfre le ssh_config (client) et sshd_config (server).
 Dans le sshd_config toutes les lignes # sont les valeurs par defaut.
@@ -40,13 +42,6 @@ On génére le couple de clef mais on ne renseigne pas la passphrase.
 - utilisation de ssh-agent.
 ## securiser ssh 
 [config](https://mathieu-androz.developpez.com/articles/linux/ssh/)
-
-
-
-
-
-
-
 
 # controle de l'état des disques durs
 
